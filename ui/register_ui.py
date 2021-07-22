@@ -18,12 +18,12 @@ class Ui_Register(object):
         if not Register.objectName():
             Register.setObjectName(u"Register")
         Register.resize(1000, 600)
-        self.horizontalLayout = QHBoxLayout(Register)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.verticalLayout = QVBoxLayout(Register)
+        self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout_2 = QVBoxLayout()
         self.verticalLayout_2.setSpacing(15)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.verticalLayout_2.setContentsMargins(320, 50, 320, 50)
+        self.verticalLayout_2.setContentsMargins(320, 40, 320, 0)
         self.label = QLabel(Register)
         self.label.setObjectName(u"label")
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
@@ -79,28 +79,26 @@ class Ui_Register(object):
 
         self.groupBox = QGroupBox(Register)
         self.groupBox.setObjectName(u"groupBox")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.groupBox.sizePolicy().hasHeightForWidth())
-        self.groupBox.setSizePolicy(sizePolicy1)
-        self.gridLayoutWidget = QWidget(self.groupBox)
-        self.gridLayoutWidget.setObjectName(u"gridLayoutWidget")
-        self.gridLayoutWidget.setGeometry(QRect(9, 20, 321, 61))
-        self.gridLayout_2 = QGridLayout(self.gridLayoutWidget)
+        sizePolicy.setHeightForWidth(self.groupBox.sizePolicy().hasHeightForWidth())
+        self.groupBox.setSizePolicy(sizePolicy)
+        self.gridLayout_4 = QGridLayout(self.groupBox)
+        self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.gridLayout_2 = QGridLayout()
         self.gridLayout_2.setObjectName(u"gridLayout_2")
-        self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.student_button = QRadioButton(self.gridLayoutWidget)
+        self.student_button = QRadioButton(self.groupBox)
         self.student_button.setObjectName(u"student_button")
         self.student_button.setChecked(True)
 
         self.gridLayout_2.addWidget(self.student_button, 0, 0, 1, 1)
 
-        self.teacher_button = QRadioButton(self.gridLayoutWidget)
+        self.teacher_button = QRadioButton(self.groupBox)
         self.teacher_button.setObjectName(u"teacher_button")
         self.teacher_button.setChecked(False)
 
         self.gridLayout_2.addWidget(self.teacher_button, 0, 1, 1, 1)
+
+
+        self.gridLayout_4.addLayout(self.gridLayout_2, 0, 0, 1, 1)
 
 
         self.verticalLayout_2.addWidget(self.groupBox)
@@ -143,8 +141,28 @@ class Ui_Register(object):
         self.verticalLayout_2.addWidget(self.register_button)
 
 
-        self.horizontalLayout.addLayout(self.verticalLayout_2)
+        self.verticalLayout.addLayout(self.verticalLayout_2)
 
+        self.gridLayout_3 = QGridLayout()
+        self.gridLayout_3.setObjectName(u"gridLayout_3")
+        self.gridLayout_3.setSizeConstraint(QLayout.SetMinimumSize)
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_3.addItem(self.horizontalSpacer, 1, 0, 1, 1)
+
+        self.goto_login_button = QPushButton(Register)
+        self.goto_login_button.setObjectName(u"goto_login_button")
+
+        self.gridLayout_3.addWidget(self.goto_login_button, 1, 1, 1, 1)
+
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_3.addItem(self.verticalSpacer, 0, 0, 1, 1)
+
+
+        self.verticalLayout.addLayout(self.gridLayout_3)
+
+        self.verticalLayout.setStretch(0, 1)
 
         self.retranslateUi(Register)
 
@@ -163,5 +181,6 @@ class Ui_Register(object):
         self.label_4.setText(QCoreApplication.translate("Register", u"Port:", None))
         self.label_3.setText(QCoreApplication.translate("Register", u"Server Address:", None))
         self.register_button.setText(QCoreApplication.translate("Register", u"Register", None))
+        self.goto_login_button.setText(QCoreApplication.translate("Register", u"Sign in to Existing Account", None))
     # retranslateUi
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Register</class>
- <widget class="QWidget" name="Register">
+ <class>Login</class>
+ <widget class="QWidget" name="Login">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,28 +11,28 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Register</string>
+   <string>Login</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout" stretch="1,0">
    <item>
-    <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,0,0,0,0,0,0,0,0,0,0">
+    <layout class="QVBoxLayout" name="verticalLayout_5">
      <property name="spacing">
-      <number>15</number>
+      <number>20</number>
      </property>
      <property name="leftMargin">
       <number>320</number>
      </property>
      <property name="topMargin">
-      <number>40</number>
+      <number>120</number>
      </property>
      <property name="rightMargin">
       <number>320</number>
      </property>
      <property name="bottomMargin">
-      <number>0</number>
+      <number>120</number>
      </property>
      <item>
-      <widget class="QLabel" name="label">
+      <widget class="QLabel" name="label_13">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -48,23 +48,7 @@
       <widget class="QLineEdit" name="username_txt"/>
      </item>
      <item>
-      <widget class="QLabel" name="label_5">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="text">
-        <string>Full Name:</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="fullname_txt"/>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_2">
+      <widget class="QLabel" name="label_14">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -84,69 +68,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="label_6">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="text">
-        <string>Verify Password:</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="verify_password_txt">
-       <property name="echoMode">
-        <enum>QLineEdit::Password</enum>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QGroupBox" name="groupBox">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="title">
-        <string>Account Type</string>
-       </property>
-       <layout class="QGridLayout" name="gridLayout_4">
-        <item row="0" column="0">
-         <layout class="QGridLayout" name="gridLayout_2">
-          <item row="0" column="0">
-           <widget class="QRadioButton" name="student_button">
-            <property name="text">
-             <string>Student</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QRadioButton" name="teacher_button">
-            <property name="text">
-             <string>Teacher</string>
-            </property>
-            <property name="checked">
-             <bool>false</bool>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </widget>
-     </item>
-     <item>
-      <layout class="QGridLayout" name="gridLayout">
-       <property name="topMargin">
-        <number>0</number>
-       </property>
+      <layout class="QGridLayout" name="gridLayout_4">
        <property name="horizontalSpacing">
         <number>7</number>
        </property>
@@ -157,7 +79,7 @@
         <widget class="QLineEdit" name="address_txt"/>
        </item>
        <item row="0" column="1">
-        <widget class="QLabel" name="label_4">
+        <widget class="QLabel" name="label_15">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -173,7 +95,7 @@
         <widget class="QLineEdit" name="port_txt"/>
        </item>
        <item row="0" column="0">
-        <widget class="QLabel" name="label_3">
+        <widget class="QLabel" name="label_16">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -188,19 +110,26 @@
       </layout>
      </item>
      <item>
-      <widget class="QPushButton" name="register_button">
+      <widget class="QPushButton" name="login_button">
        <property name="text">
-        <string>Register</string>
+        <string>Login</string>
        </property>
       </widget>
      </item>
     </layout>
    </item>
    <item>
-    <layout class="QGridLayout" name="gridLayout_3">
+    <layout class="QGridLayout" name="gridLayout">
      <property name="sizeConstraint">
       <enum>QLayout::SetMinimumSize</enum>
      </property>
+     <item row="1" column="1">
+      <widget class="QPushButton" name="goto_register_button">
+       <property name="text">
+        <string>Create New Account</string>
+       </property>
+      </widget>
+     </item>
      <item row="1" column="0">
       <spacer name="horizontalSpacer">
        <property name="orientation">
@@ -213,13 +142,6 @@
         </size>
        </property>
       </spacer>
-     </item>
-     <item row="1" column="1">
-      <widget class="QPushButton" name="goto_login_button">
-       <property name="text">
-        <string>Sign in to Existing Account</string>
-       </property>
-      </widget>
      </item>
      <item row="0" column="0">
       <spacer name="verticalSpacer">

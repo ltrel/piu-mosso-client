@@ -11,6 +11,7 @@ class RegisterForm(QWidget):
         self.ui.setupUi(self)
 
         self.ui.register_button.clicked.connect(self.register)
+        self.ui.goto_login_button.clicked.connect(self.goto_login)
 
     def register(self):
         # Store all the user input in a dictionary
@@ -53,3 +54,7 @@ class RegisterForm(QWidget):
         })
 
         print(res)
+    
+    def goto_login(self):
+        from login_form import LoginForm
+        self.parent().setCentralWidget(LoginForm(None))
