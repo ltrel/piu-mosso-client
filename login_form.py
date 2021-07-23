@@ -2,7 +2,6 @@ import requests
 from PySide6.QtWidgets import QWidget, QMessageBox
 from ui.login_ui import Ui_Login
 
-
 class LoginForm(QWidget):
     def __init__(self, parent):
         super(LoginForm, self).__init__(parent)
@@ -40,5 +39,5 @@ class LoginForm(QWidget):
         print(res)
 
     def goto_register(self):
-        from register_form import RegisterForm
-        self.parent().setCentralWidget(RegisterForm(None))
+        parent = self.parent()
+        parent.setCurrentWidget(parent.register_form)
