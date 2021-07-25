@@ -10,13 +10,12 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
-
+        # Create stacked widget to store the application pages
         self.ui.stackedWidget = QStackedWidget() 
         self.ui.stackedWidget.setObjectName('stackedWidget')
         self.ui.stackedWidget.register_form = RegisterForm(None)
         self.ui.stackedWidget.login_form = LoginForm(None)
         self.ui.stackedWidget.addWidget(self.ui.stackedWidget.register_form)
         self.ui.stackedWidget.addWidget(self.ui.stackedWidget.login_form)
+        # Add it to the top level layout
         self.ui.gridLayout.addWidget(self.ui.stackedWidget)
-
-        self.setCentralWidget(self.ui.stackedWidget)
