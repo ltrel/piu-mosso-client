@@ -20,7 +20,7 @@
    <string>Piu Mosso</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout"/>
+   <layout class="QGridLayout" name="grid_layout"/>
   </widget>
  </widget>
  <resources/>
