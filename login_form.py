@@ -32,7 +32,14 @@ class LoginForm(QWidget):
 
         app_state = QApplication.topLevelWidgets()[0].app_state
         app_state.set_server(fields['address'], fields['port'])
-        app_state.set_user(fields['username'], fields['password'])
+        if not app_state.set_user(fields['username'], fields['password']):
+            message_box = QMessageBox()
+            message_box.setWindowTitle('Invalid Credentials')
+            message_box.setText(
+                'The provided username or password is incorrect.')
+            message_box.exec()
+            self.ui.password_txt.clear()
+            return
 
         message_box = QMessageBox()
         message_box.setWindowTitle('User Details')

@@ -25,8 +25,11 @@ class ApplicationState():
         self.username = username
         self.password = password
 
-        # Fetch an authentication token from the server
-        self._set_token()
+        # Try to fetch an authentication token from the server
+        try:
+            self._set_token()
+        except:
+            return False
 
         # Verify the token and get the user's details
         verify_url = self.get_api_url('/verify-token')
@@ -39,6 +42,7 @@ class ApplicationState():
         # Set the rest of the user's details
         self.fullname = user_details['fullName']
         self.account_type = user_details['accountType']
+        return True
 
     def get_api_url(self, endpoint):
         if not(self.server_address and self.server_port):
