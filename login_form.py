@@ -1,6 +1,6 @@
-from PySide6.QtWidgets import QWidget, QMessageBox, QApplication
+from PySide6.QtWidgets import QWidget
 from ui.login_ui import Ui_Login
-from utils import app_state_ref
+from utils import app_state_ref, show_message_box
 
 
 class LoginForm(QWidget):
@@ -23,33 +23,26 @@ class LoginForm(QWidget):
 
         # Make sure every field has been filled out.
         if '' in fields.values():
-            message_box = QMessageBox()
-            message_box.setWindowTitle('User input error')
-            message_box.setText(
+            show_message_box(
+                'User input error',
                 'One or more fields have been left blank. Please try again.')
-            message_box.exec()
             return
 
         # Pass the input to ApplicationState instance
         app_state = app_state_ref()
         app_state.set_server(fields['address'], fields['port'])
         if not app_state.set_user(fields['username'], fields['password']):
-            message_box = QMessageBox()
-            message_box.setWindowTitle('Invalid Credentials')
-            message_box.setText(
+            show_message_box(
+                'Invalid Credentials',
                 'The provided username or password is incorrect.')
-            message_box.exec()
             self.ui.password_txt.clear()
             return
 
-        message_box = QMessageBox()
-        message_box.setWindowTitle('User Details')
-        message_box.setText(f'''
+        show_message_box('User Details', f'''
         Username: {app_state.username}
         Full Name: {app_state.fullname}
         Account Type: {app_state.account_type}
         ''')
-        message_box.exec()
         if app_state.account_type == 'teacher':
             parent = self.parent()
             parent.setCurrentWidget(parent.students_form)

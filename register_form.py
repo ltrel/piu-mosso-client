@@ -1,6 +1,7 @@
 import requests
-from PySide6.QtWidgets import QWidget, QMessageBox
+from PySide6.QtWidgets import QWidget
 from ui.register_ui import Ui_Register
+from utils import show_message_box
 
 
 class RegisterForm(QWidget):
@@ -27,20 +28,16 @@ class RegisterForm(QWidget):
 
         # Make sure every field has been filled out.
         if '' in fields.values():
-            message_box = QMessageBox()
-            message_box.setWindowTitle('User input error')
-            message_box.setText(
+            show_message_box(
+                'User input error',
                 'One or more fields have been left blank. Please try again.')
-            message_box.exec()
             return
 
         # Make sure the two passwords are the same.
         if fields['password'] != fields['verify_password']:
-            message_box = QMessageBox()
-            message_box.setWindowTitle('User input error')
-            message_box.setText(
-                'The passwords entered do not match. Please try again.')
-            message_box.exec()
+            show_message_box(
+                'User input error',
+                'THe passwords entered do not match. Please try again.')
             self.ui.password_txt.clear()
             self.ui.verify_password_txt.clear()
             return
