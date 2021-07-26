@@ -1,8 +1,6 @@
 import sys
-from PySide6.QtWidgets import QApplication, QMainWindow
+from PySide6.QtWidgets import QApplication
 
-from ui.mainwindow_ui import Ui_MainWindow
-from register_form import RegisterForm
 from mainwindow import MainWindow
 
 if __name__ == '__main__':
