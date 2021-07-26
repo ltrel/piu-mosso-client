@@ -39,6 +39,12 @@ class LoginForm(QWidget):
 
         print(res)
 
+    def set_server(self, address, port):
+        self.ui.address_txt.setText(address)
+        self.ui.port_txt.setText(port)
+
     def goto_register(self):
         parent = self.parent()
+        parent.register_form.set_server(
+            self.ui.address_txt.text(), self.ui.port_txt.text())
         parent.setCurrentWidget(parent.register_form)
