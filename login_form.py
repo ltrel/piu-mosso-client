@@ -1,5 +1,5 @@
 import requests
-from PySide6.QtWidgets import QWidget, QMessageBox
+from PySide6.QtWidgets import QWidget, QMessageBox, QApplication
 from ui.login_ui import Ui_Login
 
 
@@ -31,13 +31,18 @@ class LoginForm(QWidget):
             self.ui.verify_password_txt.clear()
             return
 
-        # Send the request to the server.
-        res = requests.post(f'http://{fields["address"]}:{fields["port"]}/login', json={
-            'username': fields['username'],
-            'password': fields['password'],
-        })
+        app_state = QApplication.topLevelWidgets()[0].app_state
+        app_state.set_server(fields['address'], fields['port'])
+        app_state.set_user(fields['username'], fields['password'])
 
-        print(res)
+        message_box = QMessageBox()
+        message_box.setWindowTitle('User Details')
+        message_box.setText(f'''
+        Username: {app_state.username}
+        Full Name: {app_state.fullname}
+        Account Type: {app_state.account_type}
+        ''')
+        message_box.exec()
 
     def set_server(self, address, port):
         self.ui.address_txt.setText(address)

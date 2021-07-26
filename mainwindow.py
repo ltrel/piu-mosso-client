@@ -1,7 +1,8 @@
-from PySide6.QtWidgets import QWidget, QMainWindow, QStackedWidget
+from PySide6.QtWidgets import QMainWindow, QStackedWidget
 from ui.mainwindow_ui import Ui_MainWindow
 from register_form import RegisterForm
 from login_form import LoginForm
+from application_state import ApplicationState
 
 
 class MainWindow(QMainWindow):
@@ -11,12 +12,16 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
+        self.app_state = ApplicationState()
+
         # Create stacked widget to store the application pages
         self.ui.stacked_widget = QStackedWidget()
         self.ui.stacked_widget.setObjectName('stacked_widget')
-        self.ui.stacked_widget.register_form = RegisterForm(None)
-        self.ui.stacked_widget.login_form = LoginForm(None)
+        self.ui.grid_layout.addWidget(self.ui.stacked_widget)
+
+        self.ui.stacked_widget.register_form = RegisterForm(self.ui.stacked_widget)
+        self.ui.stacked_widget.login_form = LoginForm(self.ui.stacked_widget)
+
         self.ui.stacked_widget.addWidget(self.ui.stacked_widget.register_form)
         self.ui.stacked_widget.addWidget(self.ui.stacked_widget.login_form)
-        # Add it to the top level layout
-        self.ui.grid_layout.addWidget(self.ui.stacked_widget)
+
