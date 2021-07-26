@@ -1,7 +1,6 @@
 import datetime
-import requests
 import json
-import datetime
+import requests
 
 class ApplicationState():
     def __init__(self):

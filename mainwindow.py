@@ -7,7 +7,7 @@ from application_state import ApplicationState
 
 class MainWindow(QMainWindow):
     def __init__(self):
-        super(MainWindow, self).__init__()
+        super().__init__()
 
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
@@ -24,4 +24,3 @@ class MainWindow(QMainWindow):
 
         self.ui.stacked_widget.addWidget(self.ui.stacked_widget.register_form)
         self.ui.stacked_widget.addWidget(self.ui.stacked_widget.login_form)
-

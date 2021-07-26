@@ -5,7 +5,7 @@ from ui.register_ui import Ui_Register
 
 class RegisterForm(QWidget):
     def __init__(self, parent):
-        super(RegisterForm, self).__init__(parent)
+        super().__init__(parent)
 
         self.ui = Ui_Register()
         self.ui.setupUi(self)
@@ -26,7 +26,7 @@ class RegisterForm(QWidget):
         fields['port'] = self.ui.port_txt.text()
 
         # Make sure every field has been filled out.
-        if('' in fields.values()):
+        if '' in fields.values():
             message_box = QMessageBox()
             message_box.setWindowTitle('User input error')
             message_box.setText(
@@ -35,7 +35,7 @@ class RegisterForm(QWidget):
             return
 
         # Make sure the two passwords are the same.
-        if(fields['password'] != fields['verify_password']):
+        if fields['password'] != fields['verify_password']:
             message_box = QMessageBox()
             message_box.setWindowTitle('User input error')
             message_box.setText(

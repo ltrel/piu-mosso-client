@@ -1,11 +1,10 @@
-import requests
 from PySide6.QtWidgets import QWidget, QMessageBox, QApplication
 from ui.login_ui import Ui_Login
 
 
 class LoginForm(QWidget):
     def __init__(self, parent):
-        super(LoginForm, self).__init__(parent)
+        super().__init__(parent)
 
         self.ui = Ui_Login()
         self.ui.setupUi(self)
@@ -22,7 +21,7 @@ class LoginForm(QWidget):
         fields['port'] = self.ui.port_txt.text()
 
         # Make sure every field has been filled out.
-        if('' in fields.values()):
+        if '' in fields.values():
             message_box = QMessageBox()
             message_box.setWindowTitle('User input error')
             message_box.setText(
