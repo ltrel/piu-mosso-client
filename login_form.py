@@ -1,5 +1,6 @@
 from PySide6.QtWidgets import QWidget, QMessageBox, QApplication
 from ui.login_ui import Ui_Login
+from utils import app_state_ref
 
 
 class LoginForm(QWidget):
@@ -29,7 +30,8 @@ class LoginForm(QWidget):
             message_box.exec()
             return
 
-        app_state = QApplication.topLevelWidgets()[0].app_state
+        # Pass the input to ApplicationState instance
+        app_state = app_state_ref()
         app_state.set_server(fields['address'], fields['port'])
         if not app_state.set_user(fields['username'], fields['password']):
             message_box = QMessageBox()
@@ -48,6 +50,9 @@ class LoginForm(QWidget):
         Account Type: {app_state.account_type}
         ''')
         message_box.exec()
+        if app_state.account_type == 'teacher':
+            parent = self.parent()
+            parent.setCurrentWidget(parent.students_form)
 
     def set_server(self, address, port):
         self.ui.address_txt.setText(address)
