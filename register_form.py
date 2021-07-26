@@ -31,8 +31,7 @@ class RegisterForm(QWidget):
             message_box.setWindowTitle('User input error')
             message_box.setText(
                 'One or more fields have been left blank. Please try again.')
-            message_box.show()
-            self.ui.verify_password_txt.clear()
+            message_box.exec()
             return
 
         # Make sure the two passwords are the same.
