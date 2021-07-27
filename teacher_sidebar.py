@@ -11,5 +11,5 @@ class TeacherSidebar(QWidget):
         self.ui.setupUi(self)
 
     def showEvent(self, event):
-        name = app_state_ref().fullname
+        name = app_state_ref(self).fullname
         self.ui.user_label.setText(f'You are signed in as:\n{name}')

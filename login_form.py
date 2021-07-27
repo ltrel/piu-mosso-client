@@ -29,7 +29,7 @@ class LoginForm(QWidget):
             return
 
         # Pass the input to ApplicationState instance
-        app_state = app_state_ref()
+        app_state = app_state_ref(self)
         app_state.set_server(fields['address'], fields['port'])
         if not app_state.set_user(fields['username'], fields['password']):
             show_message_box(

@@ -1,13 +1,8 @@
 from PySide6.QtWidgets import QApplication, QMessageBox
 
 
-def app_state_ref():
-    widgets = QApplication.topLevelWidgets()
-    for widget in widgets:
-      if widget.objectName() == 'MainWindow':
-        return widget.app_state
-    
-    raise Exception('MainWindow could not be found')
+def app_state_ref(widget):
+    return widget.window().app_state
 
 def show_message_box(title, text):
     message_box = QMessageBox()
