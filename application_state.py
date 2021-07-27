@@ -12,8 +12,8 @@ class ApplicationState():
         self.password = None
         self.account_type = None
 
-        self._auth_token = None
-        self._token_expiry_date = None
+        self.__auth_token = None
+        self.__token_expiry_date = None
 
     def set_server(self, address, port):
         self.server_address = address
@@ -26,7 +26,7 @@ class ApplicationState():
 
         # Try to fetch an authentication token from the server
         try:
-            self._set_token()
+            self.__set_token()
         except:
             return False
 
@@ -52,12 +52,12 @@ class ApplicationState():
 
     def get_token(self):
         # Regenerate token if it's too old
-        if datetime.datetime.now() >= self._token_expiry_date:
-            self._set_token()
+        if datetime.datetime.now() >= self.__token_expiry_date:
+            self.__set_token()
         
-        return self._auth_token
+        return self.__auth_token
 
-    def _set_token(self):
+    def __set_token(self):
         # Get token from login route
         login_url = self.get_api_url('/login')
         body = { 'username': self.username, 'password': self.password }
@@ -66,7 +66,7 @@ class ApplicationState():
             raise Exception('Login failed')
 
         # Calculate expiry date and save token
-        self._auth_token = json.loads(res.content)['token']
+        self.__auth_token = json.loads(res.content)['token']
         now = datetime.datetime.now()
         offset = datetime.timedelta(hours=1)
-        self._token_expiry_date = now + offset
+        self.__token_expiry_date = now + offset
