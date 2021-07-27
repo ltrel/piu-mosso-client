@@ -12,3 +12,4 @@ class StudentsForm(QWidget):
 
         self.ui.sidebar = TeacherSidebar(self)
         self.ui.sidebar_layout.addWidget(self.ui.sidebar)
+        self.ui.sidebar.ui.students_button.setStyleSheet('background-color: blue')
