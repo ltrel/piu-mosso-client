@@ -28,4 +28,4 @@ class MainWindow(QMainWindow):
         self.ui.stacked_widget.addWidget(self.ui.stacked_widget.login_form)
         self.ui.stacked_widget.addWidget(self.ui.stacked_widget.students_form)
 
-        # self.ui.stacked_widget.setCurrentWidget(self.ui.stacked_widget.students_form)
+        self.ui.stacked_widget.setCurrentWidget(self.ui.stacked_widget.login_form)
