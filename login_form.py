@@ -1,4 +1,5 @@
 from PySide6.QtWidgets import QWidget
+from PySide6.QtCore import QEvent, Qt
 from ui.login_ui import Ui_Login
 from utils import app_state_ref, show_message_box
 
@@ -12,6 +13,7 @@ class LoginForm(QWidget):
 
         self.ui.login_button.clicked.connect(self.login)
         self.ui.goto_register_button.clicked.connect(self.goto_register)
+        self.installEventFilter(self)
 
         self.ui.address_txt.setText('localhost')
         self.ui.port_txt.setText('3000')
@@ -59,3 +61,14 @@ class LoginForm(QWidget):
         parent.register_form.set_server(
             self.ui.address_txt.text(), self.ui.port_txt.text())
         parent.setCurrentWidget(parent.register_form)
+
+    def eventFilter(self, widget, event):
+        # If enter key was pressed, call the login code
+        if event.type() == QEvent.KeyPress:
+            key = event.key()
+            if key == Qt.Key_Enter or key == Qt.Key_Return:
+                self.login()
+                return True
+            
+        # If not, pass the event on to the default handler
+        return super().eventFilter(widget, event)
