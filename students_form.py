@@ -1,6 +1,6 @@
 import requests
 import json
-from PySide6.QtWidgets import QWidget, QVBoxLayout
+from PySide6.QtWidgets import QWidget
 from ui.students_ui import Ui_StudentsForm
 from teacher_sidebar import TeacherSidebar
 from utils import app_state_ref

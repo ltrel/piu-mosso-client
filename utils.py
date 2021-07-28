@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QApplication, QMessageBox
+from PySide6.QtWidgets import QMessageBox
 
 
 def app_state_ref(widget):
