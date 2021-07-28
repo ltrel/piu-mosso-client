@@ -13,6 +13,9 @@ class LoginForm(QWidget):
         self.ui.login_button.clicked.connect(self.login)
         self.ui.goto_register_button.clicked.connect(self.goto_register)
 
+        self.ui.address_txt.setText('localhost')
+        self.ui.port_txt.setText('3000')
+
     def login(self):
         # Store all the user input in a dictionary
         fields = {}
