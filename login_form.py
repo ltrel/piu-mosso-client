@@ -36,11 +36,20 @@ class LoginForm(QWidget):
         # Pass the input to ApplicationState instance
         app_state = app_state_ref(self)
         app_state.set_server(fields['address'], fields['port'])
-        if not app_state.set_user(fields['username'], fields['password']):
+        # Attempt to log in, and display a message if it fails
+        try:
+            # False means wrong password
+            if not app_state.set_user(fields['username'], fields['password']):
+                show_message_box(
+                    'Invalid Credentials',
+                    'The provided username or password is incorrect.')
+                self.ui.password_txt.clear()
+                return
+        except:
+            # Exception means connection failed or another error
             show_message_box(
-                'Invalid Credentials',
-                'The provided username or password is incorrect.')
-            self.ui.password_txt.clear()
+                'An error occurred',
+                'Something went wrong, check your connection to the server')
             return
 
         show_message_box('User Details', f'''

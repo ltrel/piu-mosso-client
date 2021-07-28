@@ -24,11 +24,9 @@ class ApplicationState():
         self.username = username
         self.password = password
 
-        # Try to fetch an authentication token from the server
-        try:
-            self.__set_token()
-        except:
-            return False
+        # Try to fetch an authentication token from the server,
+        # this might raise an exception, which should be caught by the caller.
+        if not self.__set_token(): return False
 
         # Verify the token and get the user's details
         verify_url = self.get_api_url('/verify-token')
@@ -62,7 +60,11 @@ class ApplicationState():
         login_url = self.get_api_url('/login')
         body = { 'username': self.username, 'password': self.password }
         res = requests.post(login_url, json=body)
-        if res.status_code != 200:
+        # Check if password was incorrect
+        if res.status_code == 401:
+            return False
+        # Check for other errors
+        elif res.status_code != 200:
             raise Exception('Login failed')
 
         # Calculate expiry date and save token
@@ -70,3 +72,4 @@ class ApplicationState():
         now = datetime.datetime.now()
         offset = datetime.timedelta(hours=1)
         self.__token_expiry_date = now + offset
+        return True
