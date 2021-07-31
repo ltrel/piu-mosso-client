@@ -117,6 +117,13 @@
      </property>
     </widget>
    </item>
+   <item>
+    <widget class="QPushButton" name="sign_out_button">
+     <property name="text">
+      <string>Sign Out</string>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <resources/>

@@ -75,6 +75,11 @@ class Ui_TeacherSidebar(object):
 
         self.verticalLayout.addWidget(self.user_label)
 
+        self.sign_out_button = QPushButton(TeacherSidebar)
+        self.sign_out_button.setObjectName(u"sign_out_button")
+
+        self.verticalLayout.addWidget(self.sign_out_button)
+
 
         self.retranslateUi(TeacherSidebar)
 
@@ -89,5 +94,6 @@ class Ui_TeacherSidebar(object):
         self.students_button.setText(QCoreApplication.translate("TeacherSidebar", u"Manage Students", None))
         self.files_button.setText(QCoreApplication.translate("TeacherSidebar", u"Shared Files", None))
         self.user_label.setText(QCoreApplication.translate("TeacherSidebar", u"You are signed in as:", None))
+        self.sign_out_button.setText(QCoreApplication.translate("TeacherSidebar", u"Sign Out", None))
     # retranslateUi
 
