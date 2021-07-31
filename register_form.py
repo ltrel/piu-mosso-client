@@ -74,3 +74,12 @@ class RegisterForm(QWidget):
             
         # If not, pass the event on to the default handler
         return super().eventFilter(widget, event)
+
+    def showEvent(self, event):
+        # Reset fields when login form becomes visible
+        self.ui.username_txt.clear()
+        self.ui.fullname_txt.clear()
+        self.ui.password_txt.clear()
+        self.ui.verify_password_txt.clear()
+        self.ui.student_button.setChecked(True)
+        self.ui.username_txt.setFocus()
