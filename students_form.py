@@ -24,6 +24,10 @@ class StudentsForm(QWidget):
         self.teacher_students = []
 
     def showEvent(self, event):
+        # Clear what was already in the list widgets
+        self.ui.students_listwidget.clear()
+        self.ui.teacher_students_listwidget.clear()
+
         app_state = app_state_ref(self)
         # Get a list of all students from the server.
         students_url = app_state.get_api_url('/students')
