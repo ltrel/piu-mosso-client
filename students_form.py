@@ -1,4 +1,3 @@
-import requests
 import json
 from PySide6.QtWidgets import QWidget
 from PySide6.QtCore import Qt
