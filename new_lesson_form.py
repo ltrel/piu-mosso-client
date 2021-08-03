@@ -13,7 +13,6 @@ class NewLessonForm(QWidget):
         self.ui = Ui_NewLessonForm()
         self.ui.setupUi(self)
 
-        self.ui.date_calendar.clicked.connect(self.test)
         self.ui.cancel_button.clicked.connect(self.clear_fields)
 
         self.ui.sidebar = TeacherSidebar(self)
@@ -21,9 +20,6 @@ class NewLessonForm(QWidget):
         self.ui.sidebar.ui.new_button.setStyleSheet('background-color: blue')
 
         self.students = []
-
-    def test(self):
-        pass
 
     def setup(self):
         # Clear what was already in the combo boxes
