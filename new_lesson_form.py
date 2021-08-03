@@ -20,6 +20,8 @@ class NewLessonForm(QWidget):
         self.ui.sidebar.ui.new_button.setStyleSheet('background-color: blue')
 
         self.students = []
+        self.instruments = []
+        self.locations = []
 
     def setup(self):
         # Clear what was already in the combo boxes
@@ -37,15 +39,17 @@ class NewLessonForm(QWidget):
 
         # Get instruments
         res = app_state.api_get('/instruments')
-        instruments = map(lambda x: title_case(x['instrumentName']),
-                          json.loads(res.content))
-        self.ui.instrument_combo.addItems(instruments)
+        self.instruments = json.loads(res.content)
+        instrument_names = map(lambda x: title_case(x['instrumentName']),
+                               self.instruments)
+        self.ui.instrument_combo.addItems(instrument_names)
 
         # Get locations
         res = app_state.api_get('/locations')
-        instruments = map(lambda x: title_case(x['instrumentName']),
-                          json.loads(res.content))
-        self.ui.location_combo.addItems(instruments)
+        self.locations = json.loads(res.content)
+        location_names = map(lambda x: title_case(x['locationName']),
+                          self.locations)
+        self.ui.location_combo.addItems(location_names)
         self.clear_fields()
 
     def clear_fields(self):
