@@ -32,3 +32,6 @@ class MainWindow(QMainWindow):
         self.ui.stacked_widget.addWidget(self.ui.stacked_widget.new_lesson_form)
 
         self.ui.stacked_widget.setCurrentWidget(self.ui.stacked_widget.login_form)
+    
+    def setup_teacher_pages(self):
+        self.ui.stacked_widget.students_form.setup()

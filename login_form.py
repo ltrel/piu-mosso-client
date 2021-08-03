@@ -58,6 +58,7 @@ class LoginForm(QWidget):
         Account Type: {app_state.account_type}
         ''')
         if app_state.account_type == 'teacher':
+            self.window().setup_teacher_pages()
             parent = self.parent()
             parent.setCurrentWidget(parent.students_form)
 

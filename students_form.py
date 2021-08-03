@@ -22,7 +22,7 @@ class StudentsForm(QWidget):
         self.all_students = []
         self.teacher_students = []
 
-    def showEvent(self, event):
+    def setup(self):
         # Clear what was already in the list widgets
         self.ui.students_listwidget.clear()
         self.ui.teacher_students_listwidget.clear()
