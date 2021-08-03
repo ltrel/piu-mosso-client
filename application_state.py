@@ -55,6 +55,21 @@ class ApplicationState():
         
         return self.__auth_token
 
+    def api_get(self, endpoint, body={}):
+        url = self.get_api_url(endpoint)
+        query = {'auth_token': self.get_token()}
+        return requests.get(url, params=query, json=body)
+
+    def api_post(self, endpoint, body={}):
+        url = self.get_api_url(endpoint)
+        query = {'auth_token': self.get_token()}
+        return requests.post(url, params=query, json=body)
+
+    def api_delete(self, endpoint, body={}):
+        url = self.get_api_url(endpoint)
+        query = {'auth_token': self.get_token()}
+        return requests.delete(url, params=query, json=body)
+
     def __set_token(self):
         # Get token from login route
         login_url = self.get_api_url('/login')

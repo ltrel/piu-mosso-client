@@ -30,8 +30,7 @@ class StudentsForm(QWidget):
 
         app_state = app_state_ref(self)
         # Get a list of all students from the server.
-        students_url = app_state.get_api_url('/students')
-        res = requests.get(students_url, params={'auth_token': app_state.get_token()})
+        res = app_state.api_get('/students')
         self.all_students = json.loads(res.content)
         # Populate the listview with the students.
         for student in self.all_students:
@@ -39,8 +38,7 @@ class StudentsForm(QWidget):
             self.ui.students_listwidget.addItem(item_string)
 
         # Get a list of the teacher's students from the server.
-        teacher_students_url = app_state.get_api_url('/teacher-students')
-        res = requests.get(teacher_students_url, params={'auth_token': app_state.get_token()})
+        res = app_state.api_get('/teacher-students')
         self.teacher_students = json.loads(res.content)
         # Populate the listview with the students.
         for student in self.teacher_students:
@@ -55,10 +53,7 @@ class StudentsForm(QWidget):
         
         # Tell the server to add the student to the teacher.
         app_state = app_state_ref(self)
-        add_student_url = app_state.get_api_url('/teacher-students')
-        res = requests.post(add_student_url, params={'auth_token': app_state.get_token()}, json={
-            'studentId': student_id
-        })
+        res = app_state.api_post('/teacher-students', {'studentId': student_id})
         # Make sure the request succeeded.
         if res.status_code != 200:
             raise Exception('API Request Failed')
@@ -80,10 +75,7 @@ class StudentsForm(QWidget):
         
         # Tell the server to remove the student from the teacher.
         app_state = app_state_ref(self)
-        add_student_url = app_state.get_api_url('/teacher-students')
-        res = requests.delete(add_student_url, params={'auth_token': app_state.get_token()}, json={
-            'studentId': student_id
-        })
+        res = app_state.api_delete('/teacher-students', {'studentId': student_id})
         # Make sure the request succeeded.
         if res.status_code != 200:
             raise Exception('API Request Failed')
