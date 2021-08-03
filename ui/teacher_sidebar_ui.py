@@ -21,6 +21,7 @@ class Ui_TeacherSidebar(object):
         self.verticalLayout = QVBoxLayout(TeacherSidebar)
         self.verticalLayout.setSpacing(40)
         self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.new_button = QPushButton(TeacherSidebar)
         self.new_button.setObjectName(u"new_button")
         sizePolicy = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
