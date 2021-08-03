@@ -41,6 +41,7 @@ class TeacherSidebar(QWidget):
 
     def sign_out(self):
         stacked_widget = self.window().ui.stacked_widget
+        stacked_widget.login_form.setup()
         stacked_widget.setCurrentWidget(stacked_widget.login_form)
 
     def showEvent(self, event):

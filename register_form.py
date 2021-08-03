@@ -11,10 +11,12 @@ class RegisterForm(QWidget):
 
         self.ui = Ui_Register()
         self.ui.setupUi(self)
+        self.setup()
 
         self.ui.register_button.clicked.connect(self.register)
         self.ui.goto_login_button.clicked.connect(self.goto_login)
         self.installEventFilter(self)
+
 
     def register(self):
         # Store all the user input in a dictionary
@@ -60,6 +62,7 @@ class RegisterForm(QWidget):
 
     def goto_login(self):
         parent = self.parent()
+        parent.login_form.setup()
         parent.login_form.set_server(
             self.ui.address_txt.text(), self.ui.port_txt.text())
         parent.setCurrentWidget(parent.login_form)
@@ -75,7 +78,7 @@ class RegisterForm(QWidget):
         # If not, pass the event on to the default handler
         return super().eventFilter(widget, event)
 
-    def showEvent(self, event):
+    def setup(self):
         # Reset fields when login form becomes visible
         self.ui.username_txt.clear()
         self.ui.fullname_txt.clear()
