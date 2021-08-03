@@ -24,12 +24,14 @@ class TeacherSidebar(QWidget):
         button_name = sender.objectName()
         # Check which button was pressed and go to the relevant page
         if button_name == 'new_button':
+            stacked_widget.new_lesson_form.setup()
             stacked_widget.setCurrentWidget(stacked_widget.new_lesson_form)
         elif button_name == 'last_button':
             pass
         elif button_name == 'calendar_button':
             pass
         elif button_name == 'students_button':
+            stacked_widget.students_form.setup()
             stacked_widget.setCurrentWidget(stacked_widget.students_form)
         elif button_name == 'files_button':
             pass
