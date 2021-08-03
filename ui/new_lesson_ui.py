@@ -40,46 +40,63 @@ class Ui_NewLessonForm(object):
 
         self.verticalLayout.addWidget(self.label)
 
-        self.comboBox = QComboBox(NewLessonForm)
-        self.comboBox.setObjectName(u"comboBox")
+        self.student_combo = QComboBox(NewLessonForm)
+        self.student_combo.setObjectName(u"student_combo")
 
-        self.verticalLayout.addWidget(self.comboBox)
+        self.verticalLayout.addWidget(self.student_combo)
 
         self.label_2 = QLabel(NewLessonForm)
         self.label_2.setObjectName(u"label_2")
 
         self.verticalLayout.addWidget(self.label_2)
 
-        self.comboBox_2 = QComboBox(NewLessonForm)
-        self.comboBox_2.setObjectName(u"comboBox_2")
+        self.location_combo = QComboBox(NewLessonForm)
+        self.location_combo.setObjectName(u"location_combo")
+        self.location_combo.setEditable(True)
 
-        self.verticalLayout.addWidget(self.comboBox_2)
+        self.verticalLayout.addWidget(self.location_combo)
 
         self.label_3 = QLabel(NewLessonForm)
         self.label_3.setObjectName(u"label_3")
 
         self.verticalLayout.addWidget(self.label_3)
 
-        self.comboBox_3 = QComboBox(NewLessonForm)
-        self.comboBox_3.setObjectName(u"comboBox_3")
+        self.instrument_combo = QComboBox(NewLessonForm)
+        self.instrument_combo.setObjectName(u"instrument_combo")
+        self.instrument_combo.setEditable(True)
 
-        self.verticalLayout.addWidget(self.comboBox_3)
+        self.verticalLayout.addWidget(self.instrument_combo)
 
         self.label_4 = QLabel(NewLessonForm)
         self.label_4.setObjectName(u"label_4")
 
         self.verticalLayout.addWidget(self.label_4)
 
-        self.timeEdit = QTimeEdit(NewLessonForm)
-        self.timeEdit.setObjectName(u"timeEdit")
+        self.time_edit = QTimeEdit(NewLessonForm)
+        self.time_edit.setObjectName(u"time_edit")
 
-        self.verticalLayout.addWidget(self.timeEdit)
+        self.verticalLayout.addWidget(self.time_edit)
 
-        self.calendarWidget = QCalendarWidget(NewLessonForm)
-        self.calendarWidget.setObjectName(u"calendarWidget")
-        self.calendarWidget.setGridVisible(True)
+        self.date_calendar = QCalendarWidget(NewLessonForm)
+        self.date_calendar.setObjectName(u"date_calendar")
+        self.date_calendar.setGridVisible(True)
 
-        self.verticalLayout.addWidget(self.calendarWidget)
+        self.verticalLayout.addWidget(self.date_calendar)
+
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.create_button = QPushButton(NewLessonForm)
+        self.create_button.setObjectName(u"create_button")
+
+        self.horizontalLayout_2.addWidget(self.create_button)
+
+        self.cancel_button = QPushButton(NewLessonForm)
+        self.cancel_button.setObjectName(u"cancel_button")
+
+        self.horizontalLayout_2.addWidget(self.cancel_button)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout_2)
 
 
         self.horizontalLayout.addLayout(self.verticalLayout)
@@ -98,5 +115,7 @@ class Ui_NewLessonForm(object):
         self.label_2.setText(QCoreApplication.translate("NewLessonForm", u"Location:", None))
         self.label_3.setText(QCoreApplication.translate("NewLessonForm", u"Instrument:", None))
         self.label_4.setText(QCoreApplication.translate("NewLessonForm", u"Date:", None))
+        self.create_button.setText(QCoreApplication.translate("NewLessonForm", u"Create Lesson", None))
+        self.cancel_button.setText(QCoreApplication.translate("NewLessonForm", u"Cancel", None))
     # retranslateUi
 
