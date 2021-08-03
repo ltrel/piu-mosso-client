@@ -25,7 +25,12 @@ class NewLessonForm(QWidget):
     def test(self):
         pass
 
-    def showEvent(self, event):
+    def setup(self):
+        # Clear what was already in the combo boxes
+        self.ui.student_combo.clear()
+        self.ui.instrument_combo.clear()
+        self.ui.location_combo.clear()
+
         app_state = app_state_ref(self)
         # Get students
         res = app_state.api_get('/teacher-students')

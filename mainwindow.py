@@ -35,3 +35,4 @@ class MainWindow(QMainWindow):
     
     def setup_teacher_pages(self):
         self.ui.stacked_widget.students_form.setup()
+        self.ui.stacked_widget.new_lesson_form.setup()
