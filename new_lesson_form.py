@@ -102,6 +102,25 @@ class NewLessonForm(QWidget):
                 '/instruments', {'instrumentName': instrument_text})
             self.ui.instrument_combo.addItem(title_case(instrument_text))
 
+        # Format the date.
+        date = self.ui.date_calendar.selectedDate()
+        time = self.ui.time_edit.time()
+        unix_ms = QDateTime(date, time).toMSecsSinceEpoch()
+
+        # Get the id of the selected student.
+        selected_student = self.students[self.ui.student_combo.currentIndex()]
+        student_id = selected_student['studentId']
+
+        # Create the lesson.
+        app_state.api_post('/lessons', {
+            'studentId': student_id,
+            'instrument': instrument_text,
+            'location': location_text,
+            'dateTime': unix_ms,
+            # TODO: allow the user to choose the number of minutes.
+            'minutes': 30,
+        })
+
     def clear_fields(self):
         self.ui.student_combo.setCurrentIndex(-1)
         self.ui.location_combo.setCurrentIndex(-1)
