@@ -82,8 +82,9 @@ class NewLessonForm(QWidget):
                 self, msg_title, msg_text, QMessageBox.Yes, QMessageBox.No)
             if result != QMessageBox.Yes:
                 return
-            # Add the location to the database.
+            # Add the location to the database and combo box.
             app_state.api_post('/locations', {'locationName': location_text})
+            self.ui.location_combo.addItem(location_text)
 
         # Offer to add the location to the database if it doesn't exist.
         instrument_names = map(lambda x: x['instrumentName'], self.instruments)
@@ -95,8 +96,9 @@ class NewLessonForm(QWidget):
                 self, msg_title, msg_text, QMessageBox.Yes, QMessageBox.No)
             if result != QMessageBox.Yes:
                 return
-            # Add the instrument to the database.
+            # Add the instrument to the database and combo box.
             app_state.api_post('/instruments', {'instrumentName': instrument_text})
+            self.ui.instrument_combo.addItem(title_case(instrument_text))
 
     def clear_fields(self):
         self.ui.student_combo.setCurrentIndex(-1)
