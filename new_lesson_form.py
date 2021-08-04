@@ -121,6 +121,9 @@ class NewLessonForm(QWidget):
             'minutes': 30,
         })
 
+        show_message_box('Success', 'Lesson created successfully.')
+        self.clear_fields()
+
     def clear_fields(self):
         self.ui.student_combo.setCurrentIndex(-1)
         self.ui.location_combo.setCurrentIndex(-1)
