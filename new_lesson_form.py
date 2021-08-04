@@ -41,7 +41,7 @@ class NewLessonForm(QWidget):
         # Get locations
         res = app_state.api_get('/locations')
         self.locations = json.loads(res.content)
-        location_names = map(lambda x: title_case(x['locationName']),
+        location_names = map(lambda x: x['locationName'],
                              self.locations)
         self.ui.location_combo.addItems(location_names)
 
@@ -59,7 +59,7 @@ class NewLessonForm(QWidget):
 
         # Get text from instrument and location combo boxes as lowercase.
         instrument_text = self.ui.instrument_combo.currentText().lower()
-        location_text = self.ui.location_combo.currentText().lower()
+        location_text = self.ui.location_combo.currentText()
 
         # Make sure all fields have been filled.
         if self.ui.student_combo.currentIndex() == -1:
