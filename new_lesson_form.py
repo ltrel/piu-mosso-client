@@ -89,15 +89,17 @@ class NewLessonForm(QWidget):
         # Offer to add the location to the database if it doesn't exist.
         instrument_names = map(lambda x: x['instrumentName'], self.instruments)
         if instrument_text not in instrument_names:
-            msg_text = f'The instrument "{instrument_text}" does not exist in '\
-                'the database, would you like to proceed by adding it?'
+            msg_text = f'The instrument "{title_case(instrument_text)}" does '\
+                'not exist in the database, would you like to proceed by '\
+                'adding it?'
             msg_title = 'Instrument not found'
             result = QMessageBox.question(
                 self, msg_title, msg_text, QMessageBox.Yes, QMessageBox.No)
             if result != QMessageBox.Yes:
                 return
             # Add the instrument to the database and combo box.
-            app_state.api_post('/instruments', {'instrumentName': instrument_text})
+            app_state.api_post(
+                '/instruments', {'instrumentName': instrument_text})
             self.ui.instrument_combo.addItem(title_case(instrument_text))
 
     def clear_fields(self):
