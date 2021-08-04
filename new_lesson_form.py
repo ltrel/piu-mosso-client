@@ -117,8 +117,7 @@ class NewLessonForm(QWidget):
             'instrument': instrument_text,
             'location': location_text,
             'dateTime': unix_ms,
-            # TODO: allow the user to choose the number of minutes.
-            'minutes': 30,
+            'minutes': self.ui.minutes_spinbox.value(),
         })
 
         show_message_box('Success', 'Lesson created successfully.')
@@ -128,6 +127,7 @@ class NewLessonForm(QWidget):
         self.ui.student_combo.setCurrentIndex(-1)
         self.ui.location_combo.setCurrentIndex(-1)
         self.ui.instrument_combo.setCurrentIndex(-1)
+        self.ui.minutes_spinbox.setValue(30)
 
         # 12 PM Today
         self.ui.time_edit.setTime(QTime(12, 0))

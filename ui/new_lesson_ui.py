@@ -34,7 +34,7 @@ class Ui_NewLessonForm(object):
 
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(160, 20, 160, 20)
+        self.verticalLayout.setContentsMargins(165, 20, 165, 20)
         self.label = QLabel(NewLessonForm)
         self.label.setObjectName(u"label")
 
@@ -67,6 +67,18 @@ class Ui_NewLessonForm(object):
 
         self.verticalLayout.addWidget(self.instrument_combo)
 
+        self.label_5 = QLabel(NewLessonForm)
+        self.label_5.setObjectName(u"label_5")
+
+        self.verticalLayout.addWidget(self.label_5)
+
+        self.minutes_spinbox = QSpinBox(NewLessonForm)
+        self.minutes_spinbox.setObjectName(u"minutes_spinbox")
+        self.minutes_spinbox.setMaximum(120)
+        self.minutes_spinbox.setValue(30)
+
+        self.verticalLayout.addWidget(self.minutes_spinbox)
+
         self.label_4 = QLabel(NewLessonForm)
         self.label_4.setObjectName(u"label_4")
 
@@ -84,6 +96,7 @@ class Ui_NewLessonForm(object):
         self.verticalLayout.addWidget(self.date_calendar)
 
         self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setSpacing(14)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.create_button = QPushButton(NewLessonForm)
         self.create_button.setObjectName(u"create_button")
@@ -114,6 +127,7 @@ class Ui_NewLessonForm(object):
         self.label.setText(QCoreApplication.translate("NewLessonForm", u"Student:", None))
         self.label_2.setText(QCoreApplication.translate("NewLessonForm", u"Location:", None))
         self.label_3.setText(QCoreApplication.translate("NewLessonForm", u"Instrument:", None))
+        self.label_5.setText(QCoreApplication.translate("NewLessonForm", u"Duration (minutes):", None))
         self.label_4.setText(QCoreApplication.translate("NewLessonForm", u"Date:", None))
         self.create_button.setText(QCoreApplication.translate("NewLessonForm", u"Create Lesson", None))
         self.cancel_button.setText(QCoreApplication.translate("NewLessonForm", u"Cancel", None))
