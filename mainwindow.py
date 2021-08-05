@@ -5,6 +5,7 @@ from login_form import LoginForm
 from application_state import ApplicationState
 from students_form import StudentsForm
 from new_lesson_form import NewLessonForm
+from last_lesson_form import LastLessonForm
 
 
 class MainWindow(QMainWindow):
@@ -25,11 +26,13 @@ class MainWindow(QMainWindow):
         self.ui.stacked_widget.login_form = LoginForm(self.ui.stacked_widget)
         self.ui.stacked_widget.students_form = StudentsForm(self.ui.stacked_widget)
         self.ui.stacked_widget.new_lesson_form = NewLessonForm(self.ui.stacked_widget)
+        self.ui.stacked_widget.last_lesson_form = LastLessonForm(self.ui.stacked_widget)
 
         self.ui.stacked_widget.addWidget(self.ui.stacked_widget.register_form)
         self.ui.stacked_widget.addWidget(self.ui.stacked_widget.login_form)
         self.ui.stacked_widget.addWidget(self.ui.stacked_widget.students_form)
         self.ui.stacked_widget.addWidget(self.ui.stacked_widget.new_lesson_form)
+        self.ui.stacked_widget.addWidget(self.ui.stacked_widget.last_lesson_form)
 
         self.ui.stacked_widget.setCurrentWidget(self.ui.stacked_widget.login_form)
     
