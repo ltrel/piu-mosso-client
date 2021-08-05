@@ -1,4 +1,5 @@
 import re
+import time
 from PySide6.QtWidgets import QMessageBox
 
 
@@ -15,3 +16,6 @@ def title_case(string):
     pattern = r"[A-Za-z]+('[A-Za-z]+)?"
     replacement = lambda match_obj: match_obj.group(0).capitalize()
     return re.sub(pattern, replacement, string)
+
+def time_ms():
+    return int(time.time() * 1000)
