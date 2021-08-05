@@ -11,6 +11,15 @@ class LessonInfoForm(QWidget):
         self.ui = Ui_LessonInfoForm()
         self.ui.setupUi(self)
 
+        self.ui.discard_button.clicked.connect(self.discard_notes)
+        self.ui.save_button.clicked.connect(self.save_notes)
+
+        self.lesson_id = lesson_json['id']
+        self.original_notes = lesson_json['notes']
+
+        # Put lesson notes in text box
+        self.ui.notes_textbox.setPlainText(lesson_json['notes'])
+
         # Fill in the lesson details
         self.ui.student_label.setText(f'Student: {lesson_json["studentName"]}')
         self.ui.duration_label.setText(
@@ -22,3 +31,13 @@ class LessonInfoForm(QWidget):
         dt = datetime.fromtimestamp(lesson_json['dateTime'] // 1000)
         dt_string = f'{dt:%A} {dt:%B} {dt.day}, {dt.year} {dt:%I:%M %p}'
         self.ui.date_label.setText(f'Date: {dt_string}')
+
+    def discard_notes(self):
+        self.ui.notes_textbox.setPlainText(self.original_notes)
+
+    def save_notes(self):
+        app_state = app_state_ref(self)
+        app_state.api_post('/lessons/notes', {
+            'lessonId': self.lesson_id,
+            'text': self.ui.notes_textbox.toPlainText()
+        })
