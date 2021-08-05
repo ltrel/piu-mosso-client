@@ -32,12 +32,12 @@ class Ui_LastLessonForm(object):
 
         self.horizontalLayout.addWidget(self.sidebar_frame)
 
-        self.lesson_info_view = QWidget(LastLessonForm)
-        self.lesson_info_view.setObjectName(u"lesson_info_view")
-        self.verticalLayout = QVBoxLayout(self.lesson_info_view)
-        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.lesson_info_frame = QWidget(LastLessonForm)
+        self.lesson_info_frame.setObjectName(u"lesson_info_frame")
+        self.lesson_info_layout = QVBoxLayout(self.lesson_info_frame)
+        self.lesson_info_layout.setObjectName(u"lesson_info_layout")
 
-        self.horizontalLayout.addWidget(self.lesson_info_view)
+        self.horizontalLayout.addWidget(self.lesson_info_frame)
 
         self.horizontalLayout.setStretch(0, 1)
         self.horizontalLayout.setStretch(1, 3)

@@ -26,8 +26,8 @@
     </widget>
    </item>
    <item>
-    <widget class="QWidget" name="lesson_info_view" native="true">
-     <layout class="QVBoxLayout" name="verticalLayout"/>
+    <widget class="QWidget" name="lesson_info_frame" native="true">
+     <layout class="QVBoxLayout" name="lesson_info_layout"/>
     </widget>
    </item>
   </layout>
