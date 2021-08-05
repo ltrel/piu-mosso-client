@@ -13,7 +13,10 @@
   <property name="windowTitle">
    <string>Lesson Info</string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,2">
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>26</number>
+   </property>
    <property name="leftMargin">
     <number>0</number>
    </property>
@@ -27,53 +30,39 @@
     <number>0</number>
    </property>
    <item>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <property name="spacing">
-      <number>30</number>
+    <layout class="QGridLayout" name="gridLayout">
+     <property name="verticalSpacing">
+      <number>12</number>
      </property>
-     <item>
-      <widget class="QLabel" name="label_3">
-       <property name="font">
-        <font>
-         <pointsize>8</pointsize>
-         <weight>50</weight>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Lesson Details:</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="student_label">
-       <property name="text">
-        <string>Student:</string>
-       </property>
-      </widget>
-     </item>
-     <item>
+     <item row="1" column="0">
       <widget class="QLabel" name="date_label">
        <property name="text">
         <string>Date:</string>
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="QLabel" name="duration_label">
+     <item row="0" column="0">
+      <widget class="QLabel" name="student_label">
        <property name="text">
-        <string>Duration:</string>
+        <string>Student:</string>
        </property>
       </widget>
      </item>
-     <item>
+     <item row="0" column="1">
       <widget class="QLabel" name="location_label">
        <property name="text">
         <string>Location:</string>
        </property>
       </widget>
      </item>
-     <item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="duration_label">
+       <property name="text">
+        <string>Duration:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
       <widget class="QLabel" name="instrument_label">
        <property name="text">
         <string>Instrument:</string>
@@ -83,31 +72,15 @@
        </property>
       </widget>
      </item>
-     <item>
-      <spacer name="verticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
     </layout>
    </item>
    <item>
     <layout class="QVBoxLayout" name="verticalLayout_2">
+     <property name="spacing">
+      <number>10</number>
+     </property>
      <item>
-      <widget class="QLabel" name="label">
-       <property name="font">
-        <font>
-         <weight>50</weight>
-         <bold>false</bold>
-        </font>
-       </property>
+      <widget class="QLabel" name="label_2">
        <property name="text">
         <string>Lesson Notes:</string>
        </property>
@@ -116,26 +89,26 @@
      <item>
       <widget class="QPlainTextEdit" name="notes_textbox"/>
      </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <property name="spacing">
+      <number>20</number>
+     </property>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <property name="spacing">
-        <number>20</number>
+      <widget class="QPushButton" name="save_button">
+       <property name="text">
+        <string>Save Changes</string>
        </property>
-       <item>
-        <widget class="QPushButton" name="save_button">
-         <property name="text">
-          <string>Save Changes</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QPushButton" name="discard_button">
-         <property name="text">
-          <string>Discard Changes</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="discard_button">
+       <property name="text">
+        <string>Discard Changes</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>

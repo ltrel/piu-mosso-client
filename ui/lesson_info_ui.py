@@ -18,68 +18,57 @@ class Ui_LessonInfoForm(object):
         if not LessonInfoForm.objectName():
             LessonInfoForm.setObjectName(u"LessonInfoForm")
         LessonInfoForm.resize(869, 555)
-        self.horizontalLayout = QHBoxLayout(LessonInfoForm)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout = QVBoxLayout()
-        self.verticalLayout.setSpacing(30)
+        self.verticalLayout = QVBoxLayout(LessonInfoForm)
+        self.verticalLayout.setSpacing(26)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.label_3 = QLabel(LessonInfoForm)
-        self.label_3.setObjectName(u"label_3")
-        font = QFont()
-        font.setPointSize(8)
-        font.setBold(False)
-        self.label_3.setFont(font)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout = QGridLayout()
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setVerticalSpacing(12)
+        self.date_label = QLabel(LessonInfoForm)
+        self.date_label.setObjectName(u"date_label")
 
-        self.verticalLayout.addWidget(self.label_3)
+        self.gridLayout.addWidget(self.date_label, 1, 0, 1, 1)
 
         self.student_label = QLabel(LessonInfoForm)
         self.student_label.setObjectName(u"student_label")
 
-        self.verticalLayout.addWidget(self.student_label)
-
-        self.date_label = QLabel(LessonInfoForm)
-        self.date_label.setObjectName(u"date_label")
-
-        self.verticalLayout.addWidget(self.date_label)
-
-        self.duration_label = QLabel(LessonInfoForm)
-        self.duration_label.setObjectName(u"duration_label")
-
-        self.verticalLayout.addWidget(self.duration_label)
+        self.gridLayout.addWidget(self.student_label, 0, 0, 1, 1)
 
         self.location_label = QLabel(LessonInfoForm)
         self.location_label.setObjectName(u"location_label")
 
-        self.verticalLayout.addWidget(self.location_label)
+        self.gridLayout.addWidget(self.location_label, 0, 1, 1, 1)
+
+        self.duration_label = QLabel(LessonInfoForm)
+        self.duration_label.setObjectName(u"duration_label")
+
+        self.gridLayout.addWidget(self.duration_label, 2, 0, 1, 1)
 
         self.instrument_label = QLabel(LessonInfoForm)
         self.instrument_label.setObjectName(u"instrument_label")
         self.instrument_label.setWordWrap(False)
 
-        self.verticalLayout.addWidget(self.instrument_label)
-
-        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout.addItem(self.verticalSpacer)
+        self.gridLayout.addWidget(self.instrument_label, 1, 1, 1, 1)
 
 
-        self.horizontalLayout.addLayout(self.verticalLayout)
+        self.verticalLayout.addLayout(self.gridLayout)
 
         self.verticalLayout_2 = QVBoxLayout()
+        self.verticalLayout_2.setSpacing(10)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.label = QLabel(LessonInfoForm)
-        self.label.setObjectName(u"label")
-        font1 = QFont()
-        font1.setBold(False)
-        self.label.setFont(font1)
+        self.label_2 = QLabel(LessonInfoForm)
+        self.label_2.setObjectName(u"label_2")
 
-        self.verticalLayout_2.addWidget(self.label)
+        self.verticalLayout_2.addWidget(self.label_2)
 
         self.notes_textbox = QPlainTextEdit(LessonInfoForm)
         self.notes_textbox.setObjectName(u"notes_textbox")
 
         self.verticalLayout_2.addWidget(self.notes_textbox)
+
+
+        self.verticalLayout.addLayout(self.verticalLayout_2)
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setSpacing(20)
@@ -95,13 +84,8 @@ class Ui_LessonInfoForm(object):
         self.horizontalLayout_2.addWidget(self.discard_button)
 
 
-        self.verticalLayout_2.addLayout(self.horizontalLayout_2)
+        self.verticalLayout.addLayout(self.horizontalLayout_2)
 
-
-        self.horizontalLayout.addLayout(self.verticalLayout_2)
-
-        self.horizontalLayout.setStretch(0, 1)
-        self.horizontalLayout.setStretch(1, 2)
 
         self.retranslateUi(LessonInfoForm)
 
@@ -110,13 +94,12 @@ class Ui_LessonInfoForm(object):
 
     def retranslateUi(self, LessonInfoForm):
         LessonInfoForm.setWindowTitle(QCoreApplication.translate("LessonInfoForm", u"Lesson Info", None))
-        self.label_3.setText(QCoreApplication.translate("LessonInfoForm", u"Lesson Details:", None))
-        self.student_label.setText(QCoreApplication.translate("LessonInfoForm", u"Student:", None))
         self.date_label.setText(QCoreApplication.translate("LessonInfoForm", u"Date:", None))
-        self.duration_label.setText(QCoreApplication.translate("LessonInfoForm", u"Duration:", None))
+        self.student_label.setText(QCoreApplication.translate("LessonInfoForm", u"Student:", None))
         self.location_label.setText(QCoreApplication.translate("LessonInfoForm", u"Location:", None))
+        self.duration_label.setText(QCoreApplication.translate("LessonInfoForm", u"Duration:", None))
         self.instrument_label.setText(QCoreApplication.translate("LessonInfoForm", u"Instrument:", None))
-        self.label.setText(QCoreApplication.translate("LessonInfoForm", u"Lesson Notes:", None))
+        self.label_2.setText(QCoreApplication.translate("LessonInfoForm", u"Lesson Notes:", None))
         self.save_button.setText(QCoreApplication.translate("LessonInfoForm", u"Save Changes", None))
         self.discard_button.setText(QCoreApplication.translate("LessonInfoForm", u"Discard Changes", None))
     # retranslateUi
