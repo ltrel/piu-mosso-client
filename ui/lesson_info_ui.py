@@ -51,6 +51,11 @@ class Ui_LessonInfoForm(object):
 
         self.gridLayout.addWidget(self.instrument_label, 1, 1, 1, 1)
 
+        self.attendance_checkbox = QCheckBox(LessonInfoForm)
+        self.attendance_checkbox.setObjectName(u"attendance_checkbox")
+
+        self.gridLayout.addWidget(self.attendance_checkbox, 2, 1, 1, 1)
+
 
         self.verticalLayout.addLayout(self.gridLayout)
 
@@ -99,6 +104,7 @@ class Ui_LessonInfoForm(object):
         self.location_label.setText(QCoreApplication.translate("LessonInfoForm", u"Location:", None))
         self.duration_label.setText(QCoreApplication.translate("LessonInfoForm", u"Duration:", None))
         self.instrument_label.setText(QCoreApplication.translate("LessonInfoForm", u"Instrument:", None))
+        self.attendance_checkbox.setText(QCoreApplication.translate("LessonInfoForm", u"Attendance", None))
         self.label_2.setText(QCoreApplication.translate("LessonInfoForm", u"Lesson Notes:", None))
         self.save_button.setText(QCoreApplication.translate("LessonInfoForm", u"Save Changes", None))
         self.discard_button.setText(QCoreApplication.translate("LessonInfoForm", u"Discard Changes", None))

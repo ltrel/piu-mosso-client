@@ -16,6 +16,7 @@ class LessonInfoForm(QWidget):
 
         self.lesson_id = lesson_json['id']
         self.original_notes = lesson_json['notes']
+        self.original_attendance = bool(lesson_json['attendance'])
 
         # Put lesson notes in text box
         self.ui.notes_textbox.setPlainText(lesson_json['notes'])
@@ -27,6 +28,7 @@ class LessonInfoForm(QWidget):
         self.ui.location_label.setText(f'Location: {lesson_json["location"]}')
         self.ui.instrument_label.setText(
             f'Instrument: {title_case(lesson_json["instrument"])}')
+        self.ui.attendance_checkbox.setChecked(bool(lesson_json['attendance']))
 
         dt = datetime.fromtimestamp(lesson_json['dateTime'] // 1000)
         dt_string = f'{dt:%A} {dt:%B} {dt.day}, {dt.year} {dt:%I:%M %p}'
@@ -34,10 +36,12 @@ class LessonInfoForm(QWidget):
 
     def discard_notes(self):
         self.ui.notes_textbox.setPlainText(self.original_notes)
+        self.ui.attendance_checkbox.setChecked(self.original_attendance)
 
     def save_notes(self):
         app_state = app_state_ref(self)
         app_state.api_post('/lessons/notes', {
             'lessonId': self.lesson_id,
-            'text': self.ui.notes_textbox.toPlainText()
+            'text': self.ui.notes_textbox.toPlainText(),
+            'attendance': self.ui.attendance_checkbox.isChecked()
         })

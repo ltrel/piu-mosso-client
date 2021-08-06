@@ -22,6 +22,7 @@ class LastLessonForm(QWidget):
         # If there is already a LessonInfoForm here, get rid of it
         if self.ui.lesson_info != None:
             self.ui.lesson_info_layout.removeWidget(self.ui.lesson_info)
+            self.ui.lesson_info.deleteLater()
 
         # Get lessons from the database
         app_state = app_state_ref(self)
