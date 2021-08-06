@@ -15,9 +15,8 @@ class StudentsForm(QWidget):
         self.ui.add_button.clicked.connect(self.add_student)
         self.ui.remove_button.clicked.connect(self.remove_student)
 
-        self.ui.sidebar = TeacherSidebar(self)
+        self.ui.sidebar = TeacherSidebar(self, 'students_button')
         self.ui.sidebar_layout.addWidget(self.ui.sidebar)
-        self.ui.sidebar.ui.students_button.setStyleSheet('background-color: blue')
 
         self.all_students = []
         self.teacher_students = []

@@ -16,9 +16,8 @@ class NewLessonForm(QWidget):
         self.ui.cancel_button.clicked.connect(self.clear_fields)
         self.ui.create_button.clicked.connect(self.create_lesson)
 
-        self.ui.sidebar = TeacherSidebar(self)
+        self.ui.sidebar = TeacherSidebar(self, 'new_button')
         self.ui.sidebar_layout.addWidget(self.ui.sidebar)
-        self.ui.sidebar.ui.new_button.setStyleSheet('background-color: blue')
 
         self.students = []
         self.instruments = []

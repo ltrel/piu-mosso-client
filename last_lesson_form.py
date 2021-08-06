@@ -13,9 +13,8 @@ class LastLessonForm(QWidget):
         self.ui = Ui_LastLessonForm()
         self.ui.setupUi(self)
 
-        self.ui.sidebar = TeacherSidebar(self)
+        self.ui.sidebar = TeacherSidebar(self, 'last_button')
         self.ui.sidebar_layout.addWidget(self.ui.sidebar)
-        self.ui.sidebar.ui.last_button.setStyleSheet('background-color: blue')
 
         self.ui.lesson_info = None
     
