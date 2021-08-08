@@ -38,7 +38,8 @@ class TeacherSidebar(QWidget):
             stacked_widget.last_lesson_form.setup()
             stacked_widget.setCurrentWidget(stacked_widget.last_lesson_form)
         elif button_name == 'calendar_button':
-            pass
+            stacked_widget.calendar_form.setup()
+            stacked_widget.setCurrentWidget(stacked_widget.calendar_form)
         elif button_name == 'students_button':
             stacked_widget.students_form.setup()
             stacked_widget.setCurrentWidget(stacked_widget.students_form)
