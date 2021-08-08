@@ -17,7 +17,7 @@ class Ui_NewLessonForm(object):
     def setupUi(self, NewLessonForm):
         if not NewLessonForm.objectName():
             NewLessonForm.setObjectName(u"NewLessonForm")
-        NewLessonForm.resize(1000, 600)
+        NewLessonForm.resize(1200, 720)
         self.horizontalLayout = QHBoxLayout(NewLessonForm)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.sidebar_frame = QWidget(NewLessonForm)
@@ -34,7 +34,7 @@ class Ui_NewLessonForm(object):
 
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(165, 20, 165, 20)
+        self.verticalLayout.setContentsMargins(220, 20, 220, 20)
         self.label = QLabel(NewLessonForm)
         self.label.setObjectName(u"label")
 

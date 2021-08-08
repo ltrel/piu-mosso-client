@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1000</width>
-    <height>600</height>
+    <width>1200</width>
+    <height>720</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,13 +20,13 @@
       <number>20</number>
      </property>
      <property name="leftMargin">
-      <number>320</number>
+      <number>380</number>
      </property>
      <property name="topMargin">
-      <number>120</number>
+      <number>160</number>
      </property>
      <property name="rightMargin">
-      <number>320</number>
+      <number>380</number>
      </property>
      <property name="bottomMargin">
       <number>120</number>

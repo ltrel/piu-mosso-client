@@ -17,13 +17,13 @@ class Ui_Register(object):
     def setupUi(self, Register):
         if not Register.objectName():
             Register.setObjectName(u"Register")
-        Register.resize(1000, 600)
+        Register.resize(1200, 720)
         self.verticalLayout = QVBoxLayout(Register)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout_2 = QVBoxLayout()
         self.verticalLayout_2.setSpacing(15)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
-        self.verticalLayout_2.setContentsMargins(320, 40, 320, 0)
+        self.verticalLayout_2.setContentsMargins(380, 80, 380, 0)
         self.label = QLabel(Register)
         self.label.setObjectName(u"label")
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)

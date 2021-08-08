@@ -17,13 +17,13 @@ class Ui_Login(object):
     def setupUi(self, Login):
         if not Login.objectName():
             Login.setObjectName(u"Login")
-        Login.resize(1000, 600)
+        Login.resize(1200, 720)
         self.verticalLayout = QVBoxLayout(Login)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout_5 = QVBoxLayout()
         self.verticalLayout_5.setSpacing(20)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.verticalLayout_5.setContentsMargins(320, 120, 320, 120)
+        self.verticalLayout_5.setContentsMargins(380, 160, 380, 120)
         self.label_13 = QLabel(Login)
         self.label_13.setObjectName(u"label_13")
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)

@@ -36,6 +36,7 @@ class Ui_LastLessonForm(object):
         self.lesson_info_frame.setObjectName(u"lesson_info_frame")
         self.lesson_info_layout = QVBoxLayout(self.lesson_info_frame)
         self.lesson_info_layout.setObjectName(u"lesson_info_layout")
+        self.lesson_info_layout.setContentsMargins(120, -1, 120, -1)
 
         self.horizontalLayout.addWidget(self.lesson_info_frame)
 
