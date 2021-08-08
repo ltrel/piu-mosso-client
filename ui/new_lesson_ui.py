@@ -115,7 +115,7 @@ class Ui_NewLessonForm(object):
         self.horizontalLayout.addLayout(self.verticalLayout)
 
         self.horizontalLayout.setStretch(0, 1)
-        self.horizontalLayout.setStretch(1, 3)
+        self.horizontalLayout.setStretch(1, 4)
 
         self.retranslateUi(NewLessonForm)
 

@@ -40,7 +40,7 @@ class Ui_LastLessonForm(object):
         self.horizontalLayout.addWidget(self.lesson_info_frame)
 
         self.horizontalLayout.setStretch(0, 1)
-        self.horizontalLayout.setStretch(1, 3)
+        self.horizontalLayout.setStretch(1, 4)
 
         self.retranslateUi(LastLessonForm)
 

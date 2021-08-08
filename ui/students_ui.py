@@ -84,7 +84,7 @@ class Ui_StudentsForm(object):
         self.horizontalLayout.addLayout(self.gridLayout)
 
         self.horizontalLayout.setStretch(0, 1)
-        self.horizontalLayout.setStretch(1, 3)
+        self.horizontalLayout.setStretch(1, 4)
 
         self.retranslateUi(StudentsForm)
 
