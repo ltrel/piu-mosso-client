@@ -1,7 +1,6 @@
 import json
 import os
 from PySide6.QtWidgets import QWidget, QFileDialog
-from PySide6.QtCore import Qt
 from ui.files_ui import Ui_FilesForm
 from teacher_sidebar import TeacherSidebar
 from utils import app_state_ref, show_message_box
@@ -18,6 +17,7 @@ class FilesForm(QWidget):
         self.ui.sidebar_layout.addWidget(self.ui.sidebar)
 
         self.ui.upload_button.clicked.connect(self.upload_file)
+        self.ui.download_button.clicked.connect(self.download_file)
         self.ui.student_combo.currentIndexChanged.connect(self.list_files)
 
         self.students = []
@@ -53,7 +53,10 @@ class FilesForm(QWidget):
         # Send the file to the server
         app_state = app_state_ref(self)
         app_state.api_post(
-            '/files', files={'file': open(file_path, 'rb')}, data={'studentId': student_id})
+            '/files',
+            files={'file': open(file_path, 'rb')},
+            data={'studentId': student_id}
+        )
 
         # Refresh the list of files
         self.list_files()
@@ -72,3 +75,27 @@ class FilesForm(QWidget):
             filter(lambda x: x['studentId'] == student_id, files))
         for file in self.shown_files:
             self.ui.files_listwidget.addItem(file['fileName'])
+
+    def download_file(self):
+        # Get the id of the currently selected file
+        selected_index = self.ui.files_listwidget.currentRow()
+        if selected_index == -1:
+            show_message_box('User input error', 'No file selected')
+            return
+        file_id = self.shown_files[selected_index]['id']
+
+        # Download the file from the server
+        app_state = app_state_ref(self)
+        res = app_state.api_get('/files/download', {'fileId': file_id})
+
+        # Write the file to disk at the location specified by the user
+        default_name = self.shown_files[selected_index]['fileName']
+        default_path = os.path.expanduser(f'~/Documents/{default_name}')
+        file_path = QFileDialog.getSaveFileName(self, dir=default_path)[0]
+        if file_path == '':
+            return
+        with open(file_path, 'wb') as output_file:
+            output_file.write(res.content)
+        print()
+
+        pass
