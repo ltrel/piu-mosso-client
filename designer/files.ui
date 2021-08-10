@@ -94,7 +94,7 @@
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="student_label">
          <property name="text">
           <string>Showing files for student:</string>
          </property>

@@ -67,8 +67,14 @@ class FilesForm(QWidget):
         # Get the id of the selected student
         selected_index = self.ui.student_combo.currentIndex()
         if selected_index == -1:
+            self.ui.student_label.setText('Showing files for student:')
             return
         student_id = self.students[selected_index]['studentId']
+
+        # Show name of student in label
+        student_name = self.students[selected_index]['fullName']
+        self.ui.student_label.setText(
+            f'Showing files for student: {student_name}')
 
         app_state = app_state_ref(self)
         files = json.loads(app_state.api_get('/files').content)

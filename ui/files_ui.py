@@ -82,10 +82,10 @@ class Ui_FilesForm(object):
 
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.label = QLabel(FilesForm)
-        self.label.setObjectName(u"label")
+        self.student_label = QLabel(FilesForm)
+        self.student_label.setObjectName(u"student_label")
 
-        self.verticalLayout.addWidget(self.label)
+        self.verticalLayout.addWidget(self.student_label)
 
         self.files_listwidget = QListWidget(FilesForm)
         self.files_listwidget.setObjectName(u"files_listwidget")
@@ -116,6 +116,6 @@ class Ui_FilesForm(object):
         self.upload_button.setText(QCoreApplication.translate("FilesForm", u"Upload New File", None))
         self.download_button.setText(QCoreApplication.translate("FilesForm", u"Download Selected File", None))
         self.delete_button.setText(QCoreApplication.translate("FilesForm", u"Delete Selected File", None))
-        self.label.setText(QCoreApplication.translate("FilesForm", u"Showing files for student:", None))
+        self.student_label.setText(QCoreApplication.translate("FilesForm", u"Showing files for student:", None))
     # retranslateUi
 
