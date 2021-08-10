@@ -33,5 +33,9 @@ class LastLessonForm(QWidget):
         past_lessons.sort(key=lambda x: x['dateTime'], reverse=True)
 
         # Create the lesson info form using the last lesson
-        self.ui.lesson_info = LessonInfoForm(self, past_lessons[0])
+        if len(past_lessons) > 0:
+            self.ui.lesson_info = LessonInfoForm(self, past_lessons[0])
+        else:
+            self.ui.lesson_info = LessonInfoForm(self, None)
+
         self.ui.lesson_info_layout.addWidget(self.ui.lesson_info)

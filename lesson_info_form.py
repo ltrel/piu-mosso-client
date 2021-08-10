@@ -11,6 +11,10 @@ class LessonInfoForm(QWidget):
         self.ui = Ui_LessonInfoForm()
         self.ui.setupUi(self)
 
+        # If there is no lesson to show, do nothing
+        if(lesson_json == None):
+            return
+
         self.ui.discard_button.clicked.connect(self.discard_notes)
         self.ui.save_button.clicked.connect(self.save_notes)
 
