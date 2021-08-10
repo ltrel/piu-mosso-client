@@ -47,14 +47,12 @@ class RegisterForm(QWidget):
             return
 
         # Send the request to the server.
-        res = requests.post(f'http://{fields["address"]}:{fields["port"]}/register', json={
+        requests.post(f'http://{fields["address"]}:{fields["port"]}/register', json={
             'username': fields['username'],
             'fullName': fields['fullname'],
             'password': fields['password'],
             'type': fields['account_type']
         })
-
-        print(res)
 
     def set_server(self, address, port):
         self.ui.address_txt.setText(address)
