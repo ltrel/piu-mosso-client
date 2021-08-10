@@ -57,12 +57,9 @@ class LoginForm(QWidget):
             parent = self.parent()
             parent.setCurrentWidget(parent.students_form)
         elif app_state.account_type == 'student':
-            show_message_box(
-                'Student sign in',
-                'Due to project time constraints, student accounts cannot '\
-                'sign in at this time'
-            )
-            self.setup()
+            parent = self.parent()
+            parent.student_dashboard.setup()
+            parent.setCurrentWidget(parent.student_dashboard)
         else:
             raise Exception('Server returned invalid account type')
 
