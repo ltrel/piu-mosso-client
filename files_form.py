@@ -18,6 +18,7 @@ class FilesForm(QWidget):
 
         self.ui.upload_button.clicked.connect(self.upload_file)
         self.ui.download_button.clicked.connect(self.download_file)
+        self.ui.delete_button.clicked.connect(self.delete_file)
         self.ui.student_combo.currentIndexChanged.connect(self.list_files)
 
         self.students = []
@@ -96,6 +97,18 @@ class FilesForm(QWidget):
             return
         with open(file_path, 'wb') as output_file:
             output_file.write(res.content)
-        print()
 
-        pass
+    def delete_file(self):
+        # Get the id of the currently selected file
+        selected_index = self.ui.files_listwidget.currentRow()
+        if selected_index == -1:
+            show_message_box('User input error', 'No file selected')
+            return
+        file_id = self.shown_files[selected_index]['id']
+
+        # Tell the server to delete the file
+        app_state = app_state_ref(self)
+        app_state.api_delete('/files', {'fileId': file_id})
+
+        # Refresh the list of files
+        self.list_files()
