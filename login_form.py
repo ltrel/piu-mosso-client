@@ -52,15 +52,19 @@ class LoginForm(QWidget):
                 'Something went wrong, check your connection to the server')
             return
 
-        show_message_box('User Details', f'''
-        Username: {app_state.username}
-        Full Name: {app_state.fullname}
-        Account Type: {app_state.account_type}
-        ''')
         if app_state.account_type == 'teacher':
             self.window().setup_teacher_pages()
             parent = self.parent()
             parent.setCurrentWidget(parent.students_form)
+        elif app_state.account_type == 'student':
+            show_message_box(
+                'Student sign in',
+                'Due to project time constraints, student accounts cannot '\
+                'sign in at this time'
+            )
+            self.setup()
+        else:
+            raise Exception('Server returned invalid account type')
 
     def set_server(self, address, port):
         self.ui.address_txt.setText(address)
