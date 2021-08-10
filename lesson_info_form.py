@@ -37,6 +37,12 @@ class LessonInfoForm(QWidget):
     def discard_notes(self):
         self.ui.notes_textbox.setPlainText(self.original_notes)
         self.ui.attendance_checkbox.setChecked(self.original_attendance)
+        # If this widget is on top of the calendar screen,
+        # return to the calendar
+        grandparent = self.parent().parent()
+        calendar_form = self.window().ui.stacked_widget.calendar_form
+        if grandparent == calendar_form:
+            grandparent.ui.stacked_widget.setCurrentWidget(grandparent.ui.calendar_page)
 
     def save_notes(self):
         app_state = app_state_ref(self)
@@ -45,3 +51,10 @@ class LessonInfoForm(QWidget):
             'text': self.ui.notes_textbox.toPlainText(),
             'attendance': self.ui.attendance_checkbox.isChecked()
         })
+        # If this widget is on top of the calendar screen, refresh the
+        # calendar's lesson details and return to the calendar
+        grandparent = self.parent().parent()
+        calendar_form = self.window().ui.stacked_widget.calendar_form
+        if grandparent == calendar_form:
+            grandparent.refresh_lessons()
+            grandparent.ui.stacked_widget.setCurrentWidget(grandparent.ui.calendar_page)

@@ -48,12 +48,9 @@ class CalendarForm(QWidget):
         # Label the date of each column
         self.label_columns()
 
-        # Get lessons from the server and sort them by date
-        app_state = app_state_ref(self)
-        self.all_lessons = json.loads(app_state.api_get('/lessons').content)
-        self.all_lessons.sort(key=lambda x: x['dateTime'])
-        # Draw all of the current week's lessons to the list widgets
-        self.populate()
+        # Fetch and draw the lessons
+        self.refresh_lessons()
+
         # Make sure the calendar page of the stacked widget is showing
         self.ui.stacked_widget.setCurrentWidget(self.ui.calendar_page)
 
@@ -95,6 +92,14 @@ class CalendarForm(QWidget):
     def previous_week(self):
         self.week_monday -= timedelta(weeks=1)
         self.label_columns()
+        self.populate()
+
+    def refresh_lessons(self):
+        # Get lessons from the server and sort them by date
+        app_state = app_state_ref(self)
+        self.all_lessons = json.loads(app_state.api_get('/lessons').content)
+        self.all_lessons.sort(key=lambda x: x['dateTime'])
+        # Draw the lessons to the list widgets
         self.populate()
 
     def label_columns(self):
