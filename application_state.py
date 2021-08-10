@@ -60,10 +60,10 @@ class ApplicationState():
         query = {'auth_token': self.get_token()}
         return requests.get(url, params=query, json=body)
 
-    def api_post(self, endpoint, body={}):
+    def api_post(self, endpoint, body={}, **kwargs):
         url = self.get_api_url(endpoint)
         query = {'auth_token': self.get_token()}
-        return requests.post(url, params=query, json=body)
+        return requests.post(url, params=query, json=body, **kwargs)
 
     def api_delete(self, endpoint, body={}):
         url = self.get_api_url(endpoint)

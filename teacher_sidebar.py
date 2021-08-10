@@ -44,6 +44,8 @@ class TeacherSidebar(QWidget):
             stacked_widget.students_form.setup()
             stacked_widget.setCurrentWidget(stacked_widget.students_form)
         elif button_name == 'files_button':
+            stacked_widget.files_form.setup()
+            stacked_widget.setCurrentWidget(stacked_widget.files_form)
             pass
         else:
             raise Exception('Unexpected button pressed')
