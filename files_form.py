@@ -34,9 +34,6 @@ class FilesForm(QWidget):
             item_string = f'{student["fullName"]} ({student["username"]})'
             self.ui.student_combo.addItem(item_string)
 
-        # Clear student combo box selection
-        self.ui.student_combo.setCurrentIndex(-1)
-
     def upload_file(self):
         # Get the id of the selected student
         selected_index = self.ui.student_combo.currentIndex()
