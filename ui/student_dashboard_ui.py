@@ -20,7 +20,7 @@ class Ui_StudentDashboard(object):
         StudentDashboard.resize(1200, 720)
         self.horizontalLayout = QHBoxLayout(StudentDashboard)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(120, -1, 120, -1)
+        self.horizontalLayout.setContentsMargins(140, -1, 140, -1)
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.verticalLayout_2 = QVBoxLayout()
@@ -42,43 +42,43 @@ class Ui_StudentDashboard(object):
         self.gridLayout = QGridLayout()
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setSizeConstraint(QLayout.SetDefaultConstraint)
-        self.label_8 = QLabel(StudentDashboard)
-        self.label_8.setObjectName(u"label_8")
+        self.duration_label = QLabel(StudentDashboard)
+        self.duration_label.setObjectName(u"duration_label")
         sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
         sizePolicy1.setHorizontalStretch(0)
         sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.label_8.sizePolicy().hasHeightForWidth())
-        self.label_8.setSizePolicy(sizePolicy1)
+        sizePolicy1.setHeightForWidth(self.duration_label.sizePolicy().hasHeightForWidth())
+        self.duration_label.setSizePolicy(sizePolicy1)
 
-        self.gridLayout.addWidget(self.label_8, 2, 0, 1, 1)
+        self.gridLayout.addWidget(self.duration_label, 2, 0, 1, 1)
 
-        self.label_4 = QLabel(StudentDashboard)
-        self.label_4.setObjectName(u"label_4")
-        sizePolicy1.setHeightForWidth(self.label_4.sizePolicy().hasHeightForWidth())
-        self.label_4.setSizePolicy(sizePolicy1)
+        self.date_label = QLabel(StudentDashboard)
+        self.date_label.setObjectName(u"date_label")
+        sizePolicy1.setHeightForWidth(self.date_label.sizePolicy().hasHeightForWidth())
+        self.date_label.setSizePolicy(sizePolicy1)
 
-        self.gridLayout.addWidget(self.label_4, 0, 0, 1, 1)
+        self.gridLayout.addWidget(self.date_label, 0, 0, 1, 1)
 
-        self.label_5 = QLabel(StudentDashboard)
-        self.label_5.setObjectName(u"label_5")
-        sizePolicy1.setHeightForWidth(self.label_5.sizePolicy().hasHeightForWidth())
-        self.label_5.setSizePolicy(sizePolicy1)
+        self.location_label = QLabel(StudentDashboard)
+        self.location_label.setObjectName(u"location_label")
+        sizePolicy1.setHeightForWidth(self.location_label.sizePolicy().hasHeightForWidth())
+        self.location_label.setSizePolicy(sizePolicy1)
 
-        self.gridLayout.addWidget(self.label_5, 0, 1, 1, 1)
+        self.gridLayout.addWidget(self.location_label, 0, 1, 1, 1)
 
-        self.label_7 = QLabel(StudentDashboard)
-        self.label_7.setObjectName(u"label_7")
-        sizePolicy1.setHeightForWidth(self.label_7.sizePolicy().hasHeightForWidth())
-        self.label_7.setSizePolicy(sizePolicy1)
+        self.instrument_label = QLabel(StudentDashboard)
+        self.instrument_label.setObjectName(u"instrument_label")
+        sizePolicy1.setHeightForWidth(self.instrument_label.sizePolicy().hasHeightForWidth())
+        self.instrument_label.setSizePolicy(sizePolicy1)
 
-        self.gridLayout.addWidget(self.label_7, 1, 1, 1, 1)
+        self.gridLayout.addWidget(self.instrument_label, 1, 1, 1, 1)
 
-        self.label_6 = QLabel(StudentDashboard)
-        self.label_6.setObjectName(u"label_6")
-        sizePolicy1.setHeightForWidth(self.label_6.sizePolicy().hasHeightForWidth())
-        self.label_6.setSizePolicy(sizePolicy1)
+        self.lesson_teacher_label = QLabel(StudentDashboard)
+        self.lesson_teacher_label.setObjectName(u"lesson_teacher_label")
+        sizePolicy1.setHeightForWidth(self.lesson_teacher_label.sizePolicy().hasHeightForWidth())
+        self.lesson_teacher_label.setSizePolicy(sizePolicy1)
 
-        self.gridLayout.addWidget(self.label_6, 1, 0, 1, 1)
+        self.gridLayout.addWidget(self.lesson_teacher_label, 1, 0, 1, 1)
 
 
         self.verticalLayout_2.addLayout(self.gridLayout)
@@ -100,10 +100,10 @@ class Ui_StudentDashboard(object):
 
         self.verticalLayout_2.addWidget(self.label_2)
 
-        self.student_combo = QComboBox(StudentDashboard)
-        self.student_combo.setObjectName(u"student_combo")
+        self.teacher_combo = QComboBox(StudentDashboard)
+        self.teacher_combo.setObjectName(u"teacher_combo")
 
-        self.verticalLayout_2.addWidget(self.student_combo)
+        self.verticalLayout_2.addWidget(self.teacher_combo)
 
         self.download_button = QPushButton(StudentDashboard)
         self.download_button.setObjectName(u"download_button")
@@ -114,27 +114,27 @@ class Ui_StudentDashboard(object):
 
         self.verticalLayout_2.addItem(self.verticalSpacer)
 
-        self.label_9 = QLabel(StudentDashboard)
-        self.label_9.setObjectName(u"label_9")
-        self.label_9.setAlignment(Qt.AlignCenter)
-        self.label_9.setWordWrap(True)
+        self.user_label = QLabel(StudentDashboard)
+        self.user_label.setObjectName(u"user_label")
+        self.user_label.setAlignment(Qt.AlignCenter)
+        self.user_label.setWordWrap(True)
 
-        self.verticalLayout_2.addWidget(self.label_9)
+        self.verticalLayout_2.addWidget(self.user_label)
 
-        self.pushButton = QPushButton(StudentDashboard)
-        self.pushButton.setObjectName(u"pushButton")
+        self.sign_out_button = QPushButton(StudentDashboard)
+        self.sign_out_button.setObjectName(u"sign_out_button")
 
-        self.verticalLayout_2.addWidget(self.pushButton)
+        self.verticalLayout_2.addWidget(self.sign_out_button)
 
 
         self.horizontalLayout_2.addLayout(self.verticalLayout_2)
 
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.label = QLabel(StudentDashboard)
-        self.label.setObjectName(u"label")
+        self.files_teacher_label = QLabel(StudentDashboard)
+        self.files_teacher_label.setObjectName(u"files_teacher_label")
 
-        self.verticalLayout.addWidget(self.label)
+        self.verticalLayout.addWidget(self.files_teacher_label)
 
         self.files_listwidget = QListWidget(StudentDashboard)
         self.files_listwidget.setObjectName(u"files_listwidget")
@@ -161,16 +161,16 @@ class Ui_StudentDashboard(object):
     def retranslateUi(self, StudentDashboard):
         StudentDashboard.setWindowTitle(QCoreApplication.translate("StudentDashboard", u"Student Dashboard", None))
         self.label_3.setText(QCoreApplication.translate("StudentDashboard", u"Next Lesson:", None))
-        self.label_8.setText(QCoreApplication.translate("StudentDashboard", u"Duration:", None))
-        self.label_4.setText(QCoreApplication.translate("StudentDashboard", u"Date:", None))
-        self.label_5.setText(QCoreApplication.translate("StudentDashboard", u"Location:", None))
-        self.label_7.setText(QCoreApplication.translate("StudentDashboard", u"Instrument:", None))
-        self.label_6.setText(QCoreApplication.translate("StudentDashboard", u"Teacher:", None))
+        self.duration_label.setText(QCoreApplication.translate("StudentDashboard", u"Duration:", None))
+        self.date_label.setText(QCoreApplication.translate("StudentDashboard", u"Date:", None))
+        self.location_label.setText(QCoreApplication.translate("StudentDashboard", u"Location:", None))
+        self.instrument_label.setText(QCoreApplication.translate("StudentDashboard", u"Instrument:", None))
+        self.lesson_teacher_label.setText(QCoreApplication.translate("StudentDashboard", u"Teacher:", None))
         self.label_10.setText(QCoreApplication.translate("StudentDashboard", u"Files:", None))
-        self.label_2.setText(QCoreApplication.translate("StudentDashboard", u"Show files shared with you by:", None))
+        self.label_2.setText(QCoreApplication.translate("StudentDashboard", u"Teacher:", None))
         self.download_button.setText(QCoreApplication.translate("StudentDashboard", u"Download Selected File", None))
-        self.label_9.setText(QCoreApplication.translate("StudentDashboard", u"You are signed in as:", None))
-        self.pushButton.setText(QCoreApplication.translate("StudentDashboard", u"Sign Out", None))
-        self.label.setText(QCoreApplication.translate("StudentDashboard", u"Showing files shared by:", None))
+        self.user_label.setText(QCoreApplication.translate("StudentDashboard", u"You are signed in as:", None))
+        self.sign_out_button.setText(QCoreApplication.translate("StudentDashboard", u"Sign Out", None))
+        self.files_teacher_label.setText(QCoreApplication.translate("StudentDashboard", u"Showing files shared with you by:", None))
     # retranslateUi
 

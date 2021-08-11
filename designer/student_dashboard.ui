@@ -51,7 +51,7 @@
           <enum>QLayout::SetDefaultConstraint</enum>
          </property>
          <item row="2" column="0">
-          <widget class="QLabel" name="label_8">
+          <widget class="QLabel" name="duration_label">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -61,10 +61,13 @@
            <property name="text">
             <string>Duration:</string>
            </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
          <item row="0" column="0">
-          <widget class="QLabel" name="label_4">
+          <widget class="QLabel" name="date_label">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -74,10 +77,13 @@
            <property name="text">
             <string>Date:</string>
            </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QLabel" name="label_5">
+          <widget class="QLabel" name="location_label">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -87,10 +93,13 @@
            <property name="text">
             <string>Location:</string>
            </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
          <item row="1" column="1">
-          <widget class="QLabel" name="label_7">
+          <widget class="QLabel" name="instrument_label">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -100,10 +109,13 @@
            <property name="text">
             <string>Instrument:</string>
            </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
           </widget>
          </item>
          <item row="1" column="0">
-          <widget class="QLabel" name="label_6">
+          <widget class="QLabel" name="lesson_teacher_label">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -112,6 +124,9 @@
            </property>
            <property name="text">
             <string>Teacher:</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
@@ -154,12 +169,12 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>Show files shared with you by:</string>
+          <string>Teacher:</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="student_combo"/>
+        <widget class="QComboBox" name="teacher_combo"/>
        </item>
        <item>
         <widget class="QPushButton" name="download_button">
@@ -182,7 +197,7 @@
         </spacer>
        </item>
        <item>
-        <widget class="QLabel" name="label_9">
+        <widget class="QLabel" name="user_label">
          <property name="text">
           <string>You are signed in as:</string>
          </property>
@@ -195,7 +210,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="sign_out_button">
          <property name="text">
           <string>Sign Out</string>
          </property>
@@ -206,9 +221,9 @@
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="files_teacher_label">
          <property name="text">
-          <string>Showing files shared by:</string>
+          <string>Showing files shared with you by:</string>
          </property>
         </widget>
        </item>
