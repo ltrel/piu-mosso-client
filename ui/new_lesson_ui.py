@@ -89,6 +89,11 @@ class Ui_NewLessonForm(object):
 
         self.verticalLayout.addWidget(self.time_edit)
 
+        self.label_6 = QLabel(NewLessonForm)
+        self.label_6.setObjectName(u"label_6")
+
+        self.verticalLayout.addWidget(self.label_6)
+
         self.date_calendar = QCalendarWidget(NewLessonForm)
         self.date_calendar.setObjectName(u"date_calendar")
         self.date_calendar.setGridVisible(True)
@@ -128,7 +133,8 @@ class Ui_NewLessonForm(object):
         self.label_2.setText(QCoreApplication.translate("NewLessonForm", u"Location:", None))
         self.label_3.setText(QCoreApplication.translate("NewLessonForm", u"Instrument:", None))
         self.label_5.setText(QCoreApplication.translate("NewLessonForm", u"Duration (minutes):", None))
-        self.label_4.setText(QCoreApplication.translate("NewLessonForm", u"Date:", None))
+        self.label_4.setText(QCoreApplication.translate("NewLessonForm", u"Time:", None))
+        self.label_6.setText(QCoreApplication.translate("NewLessonForm", u"Date:", None))
         self.create_button.setText(QCoreApplication.translate("NewLessonForm", u"Create Lesson", None))
         self.cancel_button.setText(QCoreApplication.translate("NewLessonForm", u"Cancel", None))
     # retranslateUi

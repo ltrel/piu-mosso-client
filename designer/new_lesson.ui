@@ -97,12 +97,19 @@
      <item>
       <widget class="QLabel" name="label_4">
        <property name="text">
-        <string>Date:</string>
+        <string>Time:</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QTimeEdit" name="time_edit"/>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>Date:</string>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QCalendarWidget" name="date_calendar">
