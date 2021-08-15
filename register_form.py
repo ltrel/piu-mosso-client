@@ -47,12 +47,33 @@ class RegisterForm(QWidget):
             return
 
         # Send the request to the server.
-        requests.post(f'http://{fields["address"]}:{fields["port"]}/register', json={
-            'username': fields['username'],
-            'fullName': fields['fullname'],
-            'password': fields['password'],
-            'type': fields['account_type']
-        })
+        res = None
+        try:
+            res = requests.post(f'http://{fields["address"]}:{fields["port"]}/register', json={
+                'username': fields['username'],
+                'fullName': fields['fullname'],
+                'password': fields['password'],
+                'type': fields['account_type']
+            })
+        # Handle connection error
+        except:
+            show_message_box(
+                'An error occurred',
+                'Something went wrong, check your connection to the server')
+        # Handle username conflict.
+        if res.status_code == 409:
+            show_message_box(
+                'Username Taken',
+                'A user acount with that username already exists'
+            )
+            self.setup()
+            return
+        
+        show_message_box(
+            'Success',
+            'Account created succesfully, proceed to the login page'
+        )
+        self.setup()
 
     def set_server(self, address, port):
         self.ui.address_txt.setText(address)
