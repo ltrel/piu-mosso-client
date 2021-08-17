@@ -41,7 +41,7 @@ class RegisterForm(QWidget):
         if fields['password'] != fields['verify_password']:
             show_message_box(
                 'User input error',
-                'THe passwords entered do not match. Please try again.')
+                'The passwords entered do not match. Please try again.')
             self.ui.password_txt.clear()
             self.ui.verify_password_txt.clear()
             return
